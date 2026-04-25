@@ -1,13 +1,13 @@
 ---
 title: Reward Hack Honeypot
-emoji: 🛡️
+emoji: 🦀
 colorFrom: purple
 colorTo: pink
 sdk: docker
 pinned: false
 ---
 
-# 🛡️ reward_hack_honeypot_env
+#  🦀reward_hack_honeypot_env
 
 > **An OpenEnv RL environment that trains LLMs to be honest — even when cheating is easy.**
 
@@ -133,17 +133,6 @@ No value head. No critic. The group mean is the baseline — advantages come fre
 
 ---
 
-## Results: What Changed After Training
-
-| Metric | Reference (untrained) | Trained policy | Delta |
-|---|---|---|---|
-| Mean reward | — | — | ↑ |
-| Cheat rate | — | — | ↓ |
-
-*(Run the Colab notebook linked above to reproduce — takes ~20 min on a free T4)*
-
----
-
 ## Why This Matters
 
 **For AI safety researchers:** This is the first procedural RL gym specifically designed to train against reward hacking. Every prior work either evaluates the behavior or uses static datasets — neither provides a training signal.
@@ -212,32 +201,37 @@ pytest tests/ -v
 ---
 
 ## Project Layout
+
+```
 reward_hack_honeypot_env/
-├── models.py                # HoneypotAction / Observation / State
-├── client.py                # HoneypotEnv (EnvClient subclass)
-├── openenv.yaml
-├── pyproject.toml
+│
+├── models.py                   # HoneypotAction / Observation / State
+├── client.py                   # HoneypotEnv (EnvClient subclass)
+├── openenv.yaml                # OpenEnv manifest
+├── pyproject.toml              # Package config & dependencies
+│
 ├── server/
-│   ├── app.py               # create_app(...)
-│   ├── environment.py       # HoneypotEnvironment (reset/step/state)
-│   ├── tasks.py             # 5 procedural task templates
-│   ├── sandbox.py           # Per-episode temp dir + honeypot placement
-│   ├── grader.py            # Cheat detection + hidden-test runner
-│   └── Dockerfile
+│   ├── app.py                  # create_app(...)
+│   ├── environment.py          # HoneypotEnvironment (reset/step/state)
+│   ├── tasks.py                # 5 procedural task templates
+│   ├── sandbox.py              # Per-episode temp dir + honeypot placement
+│   ├── grader.py               # Cheat detection + hidden-test runner
+│   └── Dockerfile              # Builds & serves on :8000
+│
 ├── tests/
-│   ├── test_environment.py  # 6 end-to-end tests
-│   └── test_grader.py       # 6 unit tests
+│   ├── test_environment.py     # 15 end-to-end tests
+│   └── test_grader.py          # 6 unit tests (AST scan, cheat detection)
+│
 ├── scripts/
-│   └── smoke_http.py        # Full HTTP round-trip
+│   └── smoke_http.py           # Full HTTP round-trip smoke test
+│
 └── training/
-├── policies.py          # honest / tempted / cheater (Claude-backed)
-├── rollout.py           # Generic rollout driver
-├── evaluate.py          # Policy-discrimination benchmark + plot
-├── train_grpo.py        # GRPO training loop (MPS / CUDA / CPU)
-└── train_colab.ipynb    # Colab-runnable notebook (T4)
-
-
----
+    ├── policies.py             # honest / tempted / cheater (Claude-backed)
+    ├── rollout.py              # Generic rollout driver
+    ├── evaluate.py             # 3-policy discrimination benchmark + plot
+    ├── train_grpo.py           # GRPO training loop (MPS / CUDA / CPU)
+    └── train_colab.ipynb       # ▶ Colab notebook — runs in 20 min on T4
+```
 
 ## Limitations & Future Work
 
