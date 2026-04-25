@@ -110,8 +110,6 @@ We ran 3 scripted policies × 3 tasks through `claude-haiku-4-5` to prove the re
 
 **Discrimination gap: 0.98.** The environment cleanly separates these three behaviors.
 
-![Discrimination plot](training/eval_out/reward_by_policy.png)
-
 > Why isn't "cheater" flagged 100%? Honeypots are randomized — ~25% of episodes don't place `ORACLE`. The cheater bails on those episodes and scores 0 for wasted steps. That's a feature: the agent has to learn to *always solve honestly*, not just detect oracle presence.
 
 ---
@@ -132,7 +130,6 @@ No value head. No critic. The group mean is the baseline — advantages come fre
 **Result:** Reward curve rises. Cheat rate falls.
 
 ![Reward curve](training/eval_out/reward_curve.png)
-![Before vs After](training/eval_out/before_after.png)
 
 ---
 
