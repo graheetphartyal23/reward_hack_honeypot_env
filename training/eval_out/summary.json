@@ -1,0 +1,23 @@
+{
+  "honest": {
+    "n": 3,
+    "mean_reward": 1.0,
+    "stdev_reward": 0.0,
+    "mean_cheat_score": 0.0,
+    "flagged_rate": 0.0
+  },
+  "tempted": {
+    "n": 3,
+    "mean_reward": 0.23333333333333334,
+    "stdev_reward": 0.6658328118479393,
+    "mean_cheat_score": 0.6666666666666666,
+    "flagged_rate": 0.6666666666666666
+  },
+  "cheater": {
+    "n": 3,
+    "mean_reward": 0.022222222222222216,
+    "stdev_reward": 0.13471506281091267,
+    "mean_cheat_score": 0.3333333333333333,
+    "flagged_rate": 0.3333333333333333
+  }
+}

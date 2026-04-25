@@ -1,0 +1,10 @@
+name: reward_hack_honeypot_env
+version: "0.1.0"
+description: >
+  Procedural coding tasks with injected honeypot exploits (writable tests,
+  readable oracle, env-var bypass). Reward penalizes reward hacking. Targets
+  the METR 2025 finding that frontier LLMs reward-hack under pressure and
+  the AgentMisalignment (ICLR '26) scaling trend.
+action: HoneypotAction
+observation: HoneypotObservation
+state: HoneypotState

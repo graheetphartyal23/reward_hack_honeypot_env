@@ -1,0 +1,12 @@
+openenv-core>=0.1.0
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.0.0
+httpx>=0.27.0
+websockets>=12.0
+matplotlib>=3.8.0
+pytest>=7.0.0
+
+[dev]
+pytest>=7.0
+pytest-asyncio>=0.21

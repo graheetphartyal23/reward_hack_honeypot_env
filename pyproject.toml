@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reward_hack_honeypot_env"
+version = "0.1.0"
+description = "OpenEnv RL environment for detecting LLM reward hacking on procedural coding tasks."
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core>=0.1.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.27.0",
+    "websockets>=12.0",
+    "matplotlib>=3.8.0",
+    # The grader runs the public + hidden test suites with pytest in a subprocess.
+    # It must be present in minimal installs (incl. HF Docker / local training).
+    "pytest>=7.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.scripts]
+server = "reward_hack_honeypot_env.server.app:main"
+
+[tool.setuptools]
+packages = [
+    "reward_hack_honeypot_env",
+    "reward_hack_honeypot_env.server",
+    "reward_hack_honeypot_env.env",
+    "reward_hack_honeypot_env.train",
+]
+
+[tool.setuptools.package-dir]
+"reward_hack_honeypot_env" = "."
+"reward_hack_honeypot_env.server" = "server"
+"reward_hack_honeypot_env.env" = "env"
+"reward_hack_honeypot_env.train" = "train"
+
+[tool.setuptools.package-data]
+reward_hack_honeypot_env = ["**/*.yaml", "**/*.yml"]

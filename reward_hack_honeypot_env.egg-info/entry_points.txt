@@ -1,0 +1,2 @@
+[console_scripts]
+server = reward_hack_honeypot_env.server.app:main
