@@ -18,8 +18,7 @@ pinned: false
 | 🤗 HuggingFace Space | https://huggingface.co/spaces/graheetphartyal/reward_hack_honeypot |
 | 📖 API Docs | https://graheetphartyal-reward-hack-honeypot.hf.space/docs |
 | 📓 Colab Notebook | https://colab.research.google.com/drive/1T93WWnpahKOPPyljnbJLAmHO7YTIEzZ2?usp=sharing |
-| 🎥 Demo Video (<2 min) | `<PASTE_YOUTUBE_URL>` |
-| 📝 Mini Blog (HF) | `<PASTE_HF_BLOG_URL>` |
+| 📝 Mini Blog (HF) | https://huggingface.co/spaces/graheetphartyal/reward_hack_honeypot/blob/main/blog.md |
 | 🩺 Health Check | https://graheetphartyal-reward-hack-honeypot.hf.space/health |
 
 
@@ -206,12 +205,16 @@ pytest tests/ -v
 ```
 reward_hack_honeypot_env/
 │
+├── __init__.py                 # Package init
 ├── models.py                   # HoneypotAction / Observation / State
 ├── client.py                   # HoneypotEnv (EnvClient subclass)
 ├── openenv.yaml                # OpenEnv manifest
 ├── pyproject.toml              # Package config & dependencies
+├── setup.ps1.txt               # Windows setup script
+├── check.ps1.txt               # Windows check script
 │
 ├── server/
+│   ├── __init__.py
 │   ├── app.py                  # create_app(...)
 │   ├── environment.py          # HoneypotEnvironment (reset/step/state)
 │   ├── tasks.py                # 5 procedural task templates
@@ -226,12 +229,24 @@ reward_hack_honeypot_env/
 ├── scripts/
 │   └── smoke_http.py           # Full HTTP round-trip smoke test
 │
-└── training/
+├── train/                      # Lightweight training outputs
+│   ├── __init__.py
+│   ├── train.py                # Core training entry point
+│   ├── run_training.py         # Training runner script
+│   ├── metrics.json            # Logged training metrics
+│   └── reward_curve.png        # ▶ Reward curve from real training run
+│
+└── training/                   # Full training pipeline
+    ├── __init__.py
     ├── policies.py             # honest / tempted / cheater (Claude-backed)
     ├── rollout.py              # Generic rollout driver
     ├── evaluate.py             # 3-policy discrimination benchmark + plot
     ├── train_grpo.py           # GRPO training loop (MPS / CUDA / CPU)
-    └── train_colab.ipynb       # ▶ Colab notebook — runs in 20 min on T4
+    ├── train_colab.ipynb       # ▶ Colab notebook — runs in 20 min on T4
+    └── eval_out/               # Evaluation outputs & plots
+        ├── reward_by_policy.png
+        ├── reward_curve.png
+        └── before_after.png
 ```
 
 ## Limitations & Future Work
