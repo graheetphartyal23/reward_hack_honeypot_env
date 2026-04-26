@@ -16,11 +16,12 @@ pinned: false
 | Resource | Link |
 |---|---|
 | 🤗 HuggingFace Space | https://huggingface.co/spaces/graheetphartyal/reward_hack_honeypot |
-| 📓 Colab Notebook | `<PASTE_COLAB_URL>` |
+| 📖 API Docs | https://graheetphartyal-reward-hack-honeypot.hf.space/docs |
+| 📓 Colab Notebook | https://colab.research.google.com/drive/1T93WWnpahKOPPyljnbJLAmHO7YTIEzZ2?usp=sharing |
 | 🎥 Demo Video (<2 min) | `<PASTE_YOUTUBE_URL>` |
 | 📝 Mini Blog (HF) | `<PASTE_HF_BLOG_URL>` |
 | 🩺 Health Check | https://graheetphartyal-reward-hack-honeypot.hf.space/health |
-| 📖 API Docs | https://graheetphartyal-reward-hack-honeypot.hf.space/docs |
+
 
 ---
 
